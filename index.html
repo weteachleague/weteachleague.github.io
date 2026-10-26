@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>We Teach League</title>
+  <meta name="description" content="We Teach League hub: WTL Prep, the WTL Championship and weteachleague.com." />
+  <meta name="theme-color" content="#2323F2" />
+  <link rel="icon" type="image/png" href="assets/wtl-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* WTL palette — same as WTL Prep and the WTL Championship site */
+    :root {
+      --navy: #010F19;
+      --blue: #2323F2;
+      --magenta: #FF60FF;
+      --panel: #071a28;
+      --sunk: #0c2234;
+      --line: #1b3247;
+      --text: #FFFFFF;
+      --soft: #D5D5D5;
+      --muted: #A1A1A1;
+      --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
+      --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh; display: flex; flex-direction: column;
+      background: var(--navy); color: var(--text); font: 400 16px/1.6 var(--font-body);
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; }
+    .wrap {
+      width: 100%; max-width: 1100px; margin: 0 auto;
+      padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    /* Masthead: WTL blue band */
+    .masthead { background: var(--blue); }
+    .masthead .wrap { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 28px; align-items: center; padding-block: 40px 36px; }
+    .masthead img { width: clamp(84px, 13vw, 140px); height: auto; grid-row: span 3; display: block; }
+    .eyebrow { font: 600 13px/1 var(--font-display); letter-spacing: .16em; text-transform: uppercase; color: #fff; opacity: .85; }
+    h1 { margin: 0; font: 700 clamp(34px, 6vw, 60px)/1.05 var(--font-display); text-transform: uppercase; letter-spacing: -.01em; }
+    h1 span { color: var(--navy); }
+    .masthead p { margin: 4px 0 0; max-width: 60ch; color: #e6e6ff; }
+    @media (max-width: 560px) {
+      .masthead .wrap { grid-template-columns: 1fr; }
+      .masthead img { grid-row: auto; width: 84px; }
+    }
+
+    /* Site cards */
+    main { flex: 1; padding-block: 44px 56px; }
+    .section-title { margin: 0 0 18px; font: 600 15px/1 var(--font-display); letter-spacing: .16em; text-transform: uppercase; color: var(--magenta); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .card {
+      position: relative; display: flex; flex-direction: column; gap: 12px; text-decoration: none;
+      background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--blue);
+      border-radius: 6px; padding: 24px 22px 22px; transition: transform .15s, border-color .15s, box-shadow .15s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--magenta); box-shadow: 0 10px 30px rgba(0, 0, 0, .45); }
+    .card.main { border-top-color: var(--magenta); }
+    .tag {
+      align-self: flex-start; font: 600 12px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 9px; border-radius: 3px; background: var(--sunk); color: var(--soft);
+    }
+    .card h2 { margin: 0; font: 700 28px/1.1 var(--font-display); text-transform: uppercase; letter-spacing: .01em; }
+    .card p { margin: 0; color: var(--soft); flex: 1; }
+    .card ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .card li { font: 500 13px/1 var(--font-body); padding: 6px 9px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+    .go {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; align-self: flex-start;
+      font: 600 14px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase;
+      background: var(--blue); color: #fff; padding: 11px 14px; border-radius: 4px;
+    }
+    .card.main .go { background: var(--magenta); color: var(--navy); }
+    .go svg { transition: transform .15s; }
+    .card:hover .go svg { transform: translateX(3px); }
+    .url { font-size: 13px; color: var(--muted); word-break: break-all; }
+
+    footer { border-top: 1px solid var(--line); padding-block: 20px; color: var(--muted); font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    footer a { color: var(--soft); text-underline-offset: 3px; }
+    footer a:hover { color: var(--magenta); }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <img src="assets/wtl-logo.png" alt="WTL logo" width="520" height="314" />
+      <div class="eyebrow">We Teach League</div>
+      <h1>WTL <span>Hub</span></h1>
+      <p>Everything WTL in one place: team prep tools, the WTL Championship, and League of Legends coaching.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Our sites</h2>
+    <div class="cards">
+      <a class="card main" href="https://weteachleague.com/">
+        <span class="tag">Main site</span>
+        <h2>We Teach League</h2>
+        <p>League of Legends coaching from We Teach League.</p>
+        <ul><li>Coaching</li><li>weteachleague.com</li></ul>
+        <span class="go">Visit site <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="card" href="/WTL-Championship/">
+        <span class="tag">Tournament</span>
+        <h2>WTL Championship</h2>
+        <p>The WTL Championship 2026: rulebook, SLOPE explainer and calculator, and team rosters.</p>
+        <ul><li>Rulebook</li><li>SLOPE</li><li>Rosters</li></ul>
+        <span class="go">Open <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="card" href="/WTL-Prep/">
+        <span class="tag">Team prep</span>
+        <h2>WTL Prep</h2>
+        <p>Build champion tier lists with your team's player pools, then practice drafts, including fearless series.</p>
+        <ul><li>Tier lists</li><li>Player pools</li><li>Draft simulator</li></ul>
+        <span class="go">Open <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© We Teach League</span>
+      <a href="https://weteachleague.com/">weteachleague.com</a>
+    </div>
+  </footer>
+</body>
+</html>
